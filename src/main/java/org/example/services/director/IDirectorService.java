@@ -11,4 +11,6 @@ public interface IDirectorService {
     Director getDirectorById(int directorId);
 
     List<Director> getDirectorsByIds(List<Integer> directorIds);
+
+    List<Director> getAllDirectors();
 }

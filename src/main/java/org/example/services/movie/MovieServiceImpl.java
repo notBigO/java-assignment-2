@@ -148,6 +148,11 @@ public class MovieServiceImpl implements IMovieService {
     }
 
     @Override
+    public List<Movie> getAllMovies() {
+        return new ArrayList<>(movies);
+    }
+
+    @Override
     public List<Movie> sortMoviesByReleaseYear() {
         return movies.stream()
                 .sorted(Comparator.comparingInt(Movie::getReleaseYear))
