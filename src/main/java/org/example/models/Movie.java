@@ -34,7 +34,7 @@ public class Movie {
     public int getDirectorId() { return directorId; }
     public List<Integer> getActorIds() { return actorIds; }
 
-    @Override
+//    @Override
     public String toString() {
         return "Movie{" +
                 "movieId=" + movieId +

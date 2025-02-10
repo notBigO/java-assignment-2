@@ -21,7 +21,7 @@ public class Director {
     public LocalDate getDateOfBirth() { return dateOfBirth; }
     public String getNationality() { return nationality; }
 
-    @Override
+//    @Override
     public String toString() {
         return "Director{" +
                 "directorId=" + directorId +
