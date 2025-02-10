@@ -1,5 +1,6 @@
 package org.example.services.movie;
 
+import org.example.models.Director;
 import org.example.models.Movie;
 
 import java.util.List;
@@ -9,9 +10,9 @@ public interface IMovieService {
     void loadMovies(String filePath);
     Movie getMovieById(int movieId);
     Movie getMovieByTitle(String title);
-    Movie getMovieByGenre(String genre);
-    Movie getMovieByDirector(String director);
     Movie getMovieByReleaseYear(int releaseYear);
+    List<Movie> getMoviesByDirector(String director, List<Director> directors);
+    List<Movie> getMoviesByGenre(String genre);
     List<Movie> getMoviesByReleaseYearRange(int startYear, int endYear);
     List<Movie> getTop10Movies();
 
