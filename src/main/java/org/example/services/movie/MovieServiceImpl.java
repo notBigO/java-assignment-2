@@ -1,7 +1,10 @@
 package org.example.services.movie;
 
+import org.example.models.Actor;
 import org.example.models.Director;
 import org.example.models.Movie;
+import org.example.services.actor.ActorServiceImpl;
+import org.example.services.actor.IActorService;
 import org.example.utils.FileReaderUtil;
 
 import java.io.IOException;
@@ -10,6 +13,7 @@ import java.util.stream.Collectors;
 
 public class MovieServiceImpl implements IMovieService {
     private final List<Movie> movies = new ArrayList<>();
+    private final IActorService actorService = new ActorServiceImpl();
 
     @Override
     public void loadMovies(String filePath) {
@@ -172,6 +176,13 @@ public class MovieServiceImpl implements IMovieService {
 
     @Override
     public List<Movie> getMoviesOfYoungestActor() {
-        return List.of();
+        Actor youngestActor = actorService.getYoungestActor();
+        if (youngestActor == null) {
+            return List.of();
+        }
+
+        return movies.stream()
+                .filter(movie -> movie.getActorIds().contains(youngestActor.getActorId()))
+                .collect(Collectors.toList());
     }
 }
